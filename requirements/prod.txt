@@ -1,0 +1,8 @@
+Flask
+SQLAlchemy
+psycopg2-binary
+pymongo
+gunicorn
+alembic
+uvicorn
+fastapi

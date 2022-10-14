@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
+pymongo = "*"
+gunicorn = "*"
+alembic = "*"
+tox = "*"
+coverage = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-flask = "*"
+docker-compose = "*"
+"punch.py" = "*"
+watchdog = "*"
+flake8 = "*"
+sphinx = "*"
+uvicorn = "*"
+fastapi = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
