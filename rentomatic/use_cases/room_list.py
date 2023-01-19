@@ -1,6 +1,7 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING
+from typing import overload, Protocol, TYPE_CHECKING
+from rentomatic.repository.postgres_objects import Room
 from rentomatic.responses import (
     ResponseSuccess,
     ResponseFailure,
@@ -15,10 +16,18 @@ if TYPE_CHECKING:
     )
 
 
-class Repo(ABC):
-    @abstractmethod
+class Repo(Protocol):
     def list(self, filters: dict) -> list: ...
 
+@overload
+def room_list_use_case(
+    repo: Repo, request: RoomListValidRequest
+) -> ResponseSuccess | ResponseFailure: ...
+
+@overload
+def room_list_use_case(
+    repo: Repo, request: RoomListInvalidRequest
+) -> ResponseFailure: ...
 
 def room_list_use_case(
     repo: Repo, request: RoomListValidRequest | RoomListInvalidRequest

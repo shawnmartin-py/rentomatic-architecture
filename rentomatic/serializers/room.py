@@ -1,8 +1,10 @@
 import json
 
+from rentomatic.domain.room import Room
+
 
 class RoomJsonEncoder(json.JSONEncoder):
-    def default(self, o):
+    def default(self, o: Room):
         try:
             to_serialize = {
                 "code": str(o.code),
